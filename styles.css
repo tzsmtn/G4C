@@ -1,4 +1,8 @@
-/* General */
+/* ========================================
+   OUTGROW HUNGER — SURVIVAL GROWTH THEME
+   ======================================== */
+
+/* General Reset & Base */
 
 body * {
   font-family: "Montserrat", sans-serif;
@@ -8,36 +12,77 @@ html, body {
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
-  background: #0f1113;
-  color: #e8e8e8;
+  background: #0a0c0e;
+  color: #e0ddd5;
+}
+
+::selection {
+  background: #7ed957;
+  color: #0a0c0e;
 }
 
 h1, h2, h3, h4 {
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 h1 {
-  color: #f5c451; /* warm survival/growth color */
+  color: #f5c451;
+  text-shadow: 0 0 20px rgba(245, 196, 81, 0.3);
 }
 
 h2 {
-  color: #7ed957; /* growth theme */
+  color: #7ed957;
+  text-shadow: 0 0 12px rgba(126, 217, 87, 0.15);
+}
+
+h3 {
+  color: #b8b3a7;
 }
 
 ul li {
   border: none !important;
 }
 
+a {
+  transition: all 0.3s ease;
+}
 
-/* Left Image / Profile Section */
+
+/* ========================================
+   LEFT PANEL — PROFILE / SOCIAL SECTION
+   ======================================== */
 
 .image-section {
   height: 100vh;
   text-align: center;
-  background: linear-gradient(180deg, #1b1e20, #0f1113);
+  background: linear-gradient(
+    180deg,
+    #121510 0%,
+    #1a1e17 30%,
+    #0f1113 100%
+  );
   padding: 25px;
-  border-right: 2px solid #2e3336;
+  border-right: 2px solid #2a3328;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle vine/growth texture overlay */
+.image-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at 50% 80%,
+    rgba(126, 217, 87, 0.04) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 .image-section img {
@@ -46,21 +91,31 @@ ul li {
   margin-top: 60px !important;
   object-fit: cover;
   border-radius: 50%;
-  transition: transform 0.4s ease;
+  border: 3px solid #3d5a2e !important;
+  box-shadow:
+    0 0 20px rgba(126, 217, 87, 0.15),
+    0 0 60px rgba(126, 217, 87, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .image-section img:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow:
+    0 0 30px rgba(126, 217, 87, 0.3),
+    0 0 80px rgba(126, 217, 87, 0.1);
 }
 
 
-/* Social Links */
+/* ========================================
+   SOCIAL LINKS
+   ======================================== */
 
 .links {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
+  gap: 8px;
 }
 
 .links a {
@@ -71,17 +126,70 @@ ul li {
   text-decoration: none;
   font-size: 36px;
   padding: 16px;
-  color: #c9c9c9;
-  transition: color 0.3s ease, transform 0.3s ease;
+  color: #8a8475;
+  transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
 }
 
 .icon-link:hover {
   color: #7ed957;
   transform: translateY(-4px);
+  filter: drop-shadow(0 4px 8px rgba(126, 217, 87, 0.3));
 }
 
 
-/* Content Section */
+/* ========================================
+   NAVIGATION — DESKTOP
+   ======================================== */
+
+.w3-container.w3-padding-large.w3-border-bottom {
+  background: rgba(10, 12, 14, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #2a3328 !important;
+}
+
+.w3-bar-item.w3-button {
+  color: #b8b3a7;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.w3-bar-item.w3-button:hover {
+  color: #7ed957 !important;
+}
+
+.w3-hover-border-green:hover {
+  border-color: #7ed957 !important;
+}
+
+
+/* ========================================
+   NAVIGATION — MOBILE
+   ======================================== */
+
+#mobile-nav {
+  background: #12150f;
+  border-bottom: 2px solid #2a3328;
+}
+
+#mobile-nav a {
+  padding: 14px 0;
+  font-size: 15px;
+  color: #b8b3a7;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#mobile-nav a:hover {
+  color: #7ed957;
+  background: rgba(126, 217, 87, 0.05);
+}
+
+
+/* ========================================
+   CONTENT SECTION
+   ======================================== */
 
 .content-container {
   width: 70%;
@@ -93,51 +201,129 @@ ul li {
   margin: 0 auto;
 }
 
+/* Hero Quote */
 .home p {
-  font-weight: 500;
-  color: #b5b5b5;
+  font-weight: 400;
+  color: #9a9588;
+  line-height: 1.8;
 }
 
 .home h1 {
   font-size: 64px;
+  background: linear-gradient(135deg, #f5c451, #e8a825);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  margin-bottom: 8px;
 }
 
 .home h2 {
   color: #7ed957;
+  font-weight: 600;
+  font-size: 22px;
 }
 
 .home h3 {
-  color: #c9c9c9;
+  color: #6b6860;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 3px;
 }
 
 
-/* Section Styling */
+/* ========================================
+   SECTION CONTENT BLOCKS (PITCH, THEME, WHY)
+   ======================================== */
 
 .w3-container {
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 .w3-container h2 {
-  padding-bottom: 6px;
-  border-bottom: 3px solid #f5c451;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #f5c451 !important;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Growth accent line under headings */
+.w3-container h2::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #7ed957;
+  border-radius: 2px;
 }
 
 .w3-container p {
-  margin-top: 12px;
-  color: #d2d2d2;
+  margin-top: 14px;
+  color: #c8c4ba;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.w3-container p strong {
+  color: #f5c451;
+  font-weight: 700;
+}
+
+.w3-container p em {
+  color: #7ed957;
+  font-style: italic;
 }
 
 
-/* Video Styling */
+/* ========================================
+   VIDEO SECTION
+   ======================================== */
 
 video {
-  border-radius: 10px;
+  border-radius: 12px;
   margin-top: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 2px solid #2a3328;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(126, 217, 87, 0.05);
+  transition: box-shadow 0.4s ease;
+}
+
+video:hover {
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(126, 217, 87, 0.1);
 }
 
 
-/* Utilities */
+/* ========================================
+   SCROLLBAR CUSTOMIZATION
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0c0e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a3328;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7ed957;
+}
+
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
 
 .w3-margin-top-2 {
   margin-top: 32px;
@@ -154,6 +340,7 @@ video {
 .w3-sticky {
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 .w3-fixed {
@@ -163,7 +350,9 @@ video {
 }
 
 
-/* Responsive */
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   ======================================== */
 
 @media screen and (max-width: 1200px) {
 
@@ -182,20 +371,38 @@ video {
     font-size: 48px;
   }
 
+  .w3-container p {
+    font-size: 16px;
+  }
 }
 
 @media screen and (max-width: 600px) {
 
   .content-container {
     width: 100% !important;
+    padding: 0 16px;
   }
 
   .image-section {
-    padding: 10px;
+    padding: 20px 10px;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid #2a3328;
+  }
+
+  .image-section img {
+    max-width: 50%;
+    max-height: 50%;
+    margin-top: 20px !important;
   }
 
   .links a {
-    flex: 0 0 8% !important;
+    flex: 0 0 15% !important;
+  }
+
+  .icon-link {
+    font-size: 24px;
+    padding: 10px;
   }
 
   .home {
@@ -207,24 +414,22 @@ video {
   }
 
   .home h2 {
-    font-size: 24px;
+    font-size: 20px;
+  }
+
+  .home h3 {
+    font-size: 14px;
   }
 
   .w3-fixed {
     position: inherit;
   }
 
-  .image-section {
-    height: auto;
+  .w3-margin-top-20-percent {
+    margin-top: 60px;
   }
 
-  .image-section img {
-    max-width: 80%;
-    max-height: 80%;
+  video {
+    border-radius: 8px;
   }
-
-  .icon-link {
-    font-size: 24px;
-  }
-
 }
